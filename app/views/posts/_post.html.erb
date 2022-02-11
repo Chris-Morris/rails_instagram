@@ -10,7 +10,7 @@
     <li class="list-group-item">Comments: <span class="badge bg-info rounded-pill"><%= post.comments.length %></span></li>
   </ul>
   <div class="container">
-    <%= form_for([post, post.comments.build]) do |f| %>
+    <%= form_for([post, post.comments.build], remote: true) do |f| %>
     <div class="input-group mb-3">
       <p><%= f.text_field :body, { class: "form-control" } %></p>
       <p><%= f.submit "Add comment", class: "btn btn-primary" %></p>
