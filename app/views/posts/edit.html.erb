@@ -1,0 +1,14 @@
+<h1>Editing post</h1>
+
+<%= render "form", post: @post %>
+
+<br>
+
+<div>
+  <div class="btn btn-primary">
+    <%= link_to "Show this post", @post, class: "btn" %>
+  </div>
+  <div class="btn btn-primary">
+    <%= link_to "Back to posts", posts_path, class: "btn" %>
+  </div>
+</div>

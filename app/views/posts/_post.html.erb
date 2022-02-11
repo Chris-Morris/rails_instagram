@@ -1,0 +1,38 @@
+<div id="<%= dom_id post %>" class="card mb-4">
+  <h4 class="card-header"><%= post.title %></h4>
+  <% if post.image.attached? %>
+    <%= link_to post do %>
+      <% image_tag(post.image, height: '100%', width: '100%') %>
+    <% end %>
+  <% end %>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Likes: <span class="badge bg-info rounded-pill"><%= post.likes %></span></li>
+    <li class="list-group-item">Comments: <span class="badge bg-info rounded-pill"><%= post.comments.length %></span></li>
+  </ul>
+  <div class="container">
+    <%= form_for([post, post.comments.build]) do |f| %>
+    <div class="input-group mb-3">
+      <p><%= f.text_field :body, { class: "form-control" } %></p>
+      <p><%= f.submit "Add comment", class: "btn btn-primary" %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="container">
+    <h4>Comments</h4>
+    <% post.comments.each do |comment| %>
+      <% if comment.created_at? %>
+        <div class="well">
+          <p><strong><%= current_user.email %></strong>: <%= comment.body %></p>
+          <p style="font-size: 12px; color: grey;"><%= time_ago_in_words(comment.created_at) %></p>
+        </div>
+      <% else %>
+        <div class="well">
+          <p><strong><%= current_user.email %></strong>: <%= comment.body %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="card-footer text-muted">
+    <%= time_ago_in_words(post.created_at) %>
+  </div>
+</div>
