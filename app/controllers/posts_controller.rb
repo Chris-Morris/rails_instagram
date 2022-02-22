@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :vote]
+  # before_action :authenticate_user!, only: [:new, :vote]
   before_action :set_post, only: %i[ show edit update destroy like ]
   respond_to :js, :json, :html
 

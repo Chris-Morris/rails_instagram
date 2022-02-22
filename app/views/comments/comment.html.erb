@@ -1,0 +1,14 @@
+<% if comment.created_at? %>
+    <div class="well">
+        <p><strong><%= current_user.email %></strong>: <%= comment.body %></p>
+        <%= image_tag "x-circle.svg" %>
+        <div class="btn btn-primary">
+        <%= button_to "Destroy this comment", @comment, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, class: "btn" %>
+        </div>
+        <p style="font-size: 12px; color: grey;"><%= time_ago_in_words(comment.created_at) %></p>
+    </div>
+    <% else %>
+    <div class="well">
+        <p><strong><%= current_user.email %></strong>: <%= comment.body %></p>
+    </div>
+<% end %>
