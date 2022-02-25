@@ -4,4 +4,8 @@ class Post < ApplicationRecord
     acts_as_votable
     has_one_attached :image, dependent: :destroy
     validates :title, :image, presence: true
+
+    after_update_commit {
+        broadcast_update
+    }
 end

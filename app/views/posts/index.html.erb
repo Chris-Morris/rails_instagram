@@ -2,20 +2,19 @@
 
 <h1>Posts</h1>
 
-
-
 <% if user_signed_in? %>
   <div class="btn btn-primary">
     <%= link_to 'New Post', new_post_path, :class => "btn" %>
   </div>
-
-  <div id="posts" class="mt-4">
-    <% @posts.reverse_each do |post| %>
-      <%= render post %>
-    <% end %>
-  </div>
 <% else %>
   <div>
-    <h3>Please Sign In to view Posts</h3>
+    <h3>Please Sign In to create Posts</h3>
   </div>
 <% end %>
+
+<%= turbo_stream_from(@post) %>
+<div id="posts" class="mt-4">
+  <% @posts.reverse_each do |post| %>
+    <%= render post %>
+  <% end %>
+</div>

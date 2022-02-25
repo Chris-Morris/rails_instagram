@@ -1,25 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<% if user_signed_in? %>
+<div class="btn btn-primary">
+  <%= link_to "Back to posts", posts_path, class: "btn" %>
+</div>
+
+<%= turbo_stream_from(@post) %>
+<div id="<%= dom_id(@post) %>">
+  <%= render @post %>
+</div>
+
+<div>
+  <div class="btn btn-primary">
+    <%= link_to "Edit this post", edit_post_path(@post), class: "btn" %>
+  </div> |
   <div class="btn btn-primary">
     <%= link_to "Back to posts", posts_path, class: "btn" %>
   </div>
-  <%= render @post %>
 
-  <div>
-    <div class="btn btn-primary">
-      <%= link_to "Edit this post", edit_post_path(@post), class: "btn" %>
-    </div> |
-    <div class="btn btn-primary">
-      <%= link_to "Back to posts", posts_path, class: "btn" %>
-    </div>
-
-    <div class="btn btn-primary">
-      <%= link_to "Destroy this post", @post, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, class: "btn" %>
-    </div>
+  <div class="btn btn-primary">
+    <%= link_to "Destroy this post", @post, data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, class: "btn" %>
   </div>
-<% else %>
-  <div>
-    <h3>Please Sign In to view posts</h3>
-  </div>
-<% end %>
+</div>
