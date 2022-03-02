@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   resources :posts do
     resources :comments
-    member do
-      put "like" => "posts#vote"
-    end
+    resource :like
   end
 
   devise_for :users

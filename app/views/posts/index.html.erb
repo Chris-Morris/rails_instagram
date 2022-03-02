@@ -4,14 +4,6 @@
 
 <%= turbo_stream_from "posts" %>
 <% if user_signed_in? %>
-  <%
-=begin%>
- <div class="btn btn-primary">
-    <%= link_to 'New Post', new_post_path, :class => "btn" %>
-  </div> 
-<%
-=end%>
-
   <%= turbo_frame_tag "post_form" do %>
     <%= render "posts/form", post: @post %>
   <% end %>

@@ -51,6 +51,9 @@ gem "devise"
 # Bootstrap form
 gem "bootstrap_form", "~> 5.0"
 
+# Bootstrap Icons
+gem 'bootstrap-icons-helper', '~> 1.0', '>= 1.0.1'
+
 # Like
 gem 'acts_as_votable'
 
