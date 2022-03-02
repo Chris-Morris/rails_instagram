@@ -1,5 +1,7 @@
-<%= bootstrap_form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
+<%= bootstrap_form_with(model: post, id: dom_id(post)) do |form| %>
+  <%
+=begin%>
+ <% if post.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
@@ -9,7 +11,9 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> 
+<%
+=end%>
 
   <div>
     <%= form.text_field :title %>

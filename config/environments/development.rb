@@ -39,6 +39,15 @@ Rails.application.configure do
   # Default URL
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # Default URL
+  config.action_controller.default_url_options = { host: 'localhost', port: 3000 }
+  
+  # Default URL
+  config.active_storage.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Default URL
+  routes.default_url_options = { host: 'localhost', port: 3000 }
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
