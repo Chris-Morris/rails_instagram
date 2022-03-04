@@ -54,6 +54,9 @@ gem "bootstrap_form", "~> 5.0"
 # Bootstrap Icons
 gem 'bootstrap-icons-helper', '~> 1.0', '>= 1.0.1'
 
+# FontAwesome
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
+
 # Like
 gem 'acts_as_votable'
 

@@ -1,0 +1,20 @@
+<h1>Comments</h1>
+
+<%= turbo_stream_from "comments" %>
+<% if user_signed_in? %>
+  <%= turbo_frame_tag "comment_form" do %>
+    <%= render "comments/form", comment: @comment %>
+  <% end %>
+<% else %>
+  <div>
+    <h3>Please Sign In to create Comments</h3>
+  </div>
+<% end %>
+
+<%= turbo_frame_tag "comments" do %>
+  <div id="comments" class="mt-4">
+    <% @comments.reverse_each do |comment| %>
+      <%= render comment %>
+    <% end %>
+  </div>
+<% end %>
